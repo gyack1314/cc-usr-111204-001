@@ -1,0 +1,7 @@
+# OPC UA适配器资料
+
+资料为服务层已解码响应，Replay.call(operation,arguments)返回不解释的下一条响应，真实接入可替换为相同服务适配器。服务操作映射为Browse、BrowseNext、Read、Close；BrowseNext参数中release=true用于释放，续点只在产生它的会话中合法。示例步骤用于展示响应形状，扩展场景可提供不同steps，不以一次固定操作序列限制遍历策略。
+
+节点文本是线上的索引身份，数值identifier保留整数，bytes类型使用hex字符串，guid按UUID规范值，string按原文不做Unicode合并。稳定服务器URI由配置固定，ServerIndex跨服务端引用按服务端表解释，未知外部服务只留引用。Read的results与请求属性顺序一一对应，Good、Uncertain、Bad按StatusCode主类别区分，不仅按是否有value。遍历无法提供跨批原子快照。
+
+现有domain仅清点会话和响应，不规范化NodeId、不展开引用图。

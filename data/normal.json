@@ -1,0 +1,104 @@
+{
+  "sessions": [
+    {
+      "id": "s1",
+      "server_uri": "urn:hydrogen:lab",
+      "namespaces": [
+        "http://opcfoundation.org/UA/",
+        "urn:vendor:A",
+        "urn:vendor:B"
+      ]
+    },
+    {
+      "id": "s2",
+      "server_uri": "urn:hydrogen:lab",
+      "namespaces": [
+        "http://opcfoundation.org/UA/",
+        "urn:vendor:B",
+        "urn:vendor:A"
+      ]
+    }
+  ],
+  "roots": [
+    {
+      "namespace_index": 1,
+      "identifier_type": "string",
+      "identifier": "plant"
+    }
+  ],
+  "allowed_reference_types": [
+    "Organizes",
+    "HasComponent"
+  ],
+  "max_nodes": 100,
+  "read_batch": 3,
+  "steps": [
+    {
+      "operation": "Browse",
+      "arguments": {
+        "session": "s1",
+        "node": "ns=1;s=plant"
+      },
+      "response": {
+        "status": "Good",
+        "references": [
+          {
+            "target": "ns=1;s=meter",
+            "reference_type": "HasComponent",
+            "forward": true,
+            "class": "Variable",
+            "display": "压力"
+          }
+        ],
+        "continuation": "opaque/next=1"
+      }
+    },
+    {
+      "operation": "BrowseNext",
+      "response": {
+        "status": "Good",
+        "references": [],
+        "continuation": "opaque/next=2"
+      }
+    },
+    {
+      "operation": "BrowseNext",
+      "response": {
+        "status": "Good",
+        "references": [
+          {
+            "target": "ns=1;s=plant",
+            "reference_type": "Organizes",
+            "forward": true,
+            "class": "Object",
+            "display": "园区"
+          }
+        ],
+        "continuation": null
+      }
+    },
+    {
+      "operation": "Read",
+      "response": {
+        "results": [
+          {
+            "status": "Good",
+            "value": 3.2,
+            "source_timestamp": "2030-01-01T00:00:00Z",
+            "server_timestamp": "2030-01-01T00:00:01Z"
+          },
+          {
+            "status": "BadNotReadable",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "operation": "Close",
+      "response": {
+        "status": "Good"
+      }
+    }
+  ]
+}
