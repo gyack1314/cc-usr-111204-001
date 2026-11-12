@@ -1,0 +1,384 @@
+{
+  "sessions": [
+    {
+      "id": "s1",
+      "server_uri": "urn:hydrogen:lab",
+      "namespaces": [
+        "http://opcfoundation.org/UA/",
+        "urn:vendor:A",
+        "urn:vendor:B"
+      ]
+    },
+    {
+      "id": "s2",
+      "server_uri": "urn:hydrogen:lab",
+      "namespaces": [
+        "http://opcfoundation.org/UA/",
+        "urn:vendor:B",
+        "urn:vendor:A"
+      ]
+    }
+  ],
+  "server_table": [
+    {
+      "server_index": 1,
+      "server_uri": "urn:vendor:C"
+    }
+  ],
+  "roots": [
+    {
+      "namespace_index": 1,
+      "identifier_type": "string",
+      "identifier": "plant"
+    }
+  ],
+  "allowed_reference_types": [
+    "Organizes",
+    "HasComponent"
+  ],
+  "max_nodes": 100,
+  "max_pages": 200,
+  "read_batch": 2,
+  "read_attributes": [
+    "Value"
+  ],
+  "steps": [
+    {
+      "operation": "Browse",
+      "arguments": {
+        "session": "s1",
+        "node": "ns=1;s=plant"
+      },
+      "response": {
+        "status": "Good",
+        "references": [
+          {
+            "target": "ns=1;s=meter",
+            "reference_type": "HasComponent",
+            "forward": true,
+            "class": "Variable",
+            "display": "压力"
+          },
+          {
+            "target": "ns=1;g=550e8400-e29b-41d4-a716-446655440000",
+            "reference_type": "HasComponent",
+            "forward": true,
+            "class": "Object",
+            "display": "控制器"
+          }
+        ],
+        "continuation": "opaque/plant/p1"
+      }
+    },
+    {
+      "operation": "BrowseNext",
+      "arguments": {
+        "session": "s1",
+        "continuation_point": "opaque/plant/p1",
+        "release": false
+      },
+      "response": {
+        "status": "Good",
+        "references": [
+          {
+            "target": "ns=1;b=0a1bff",
+            "reference_type": "HasComponent",
+            "forward": true,
+            "class": "Object",
+            "display": "校准块"
+          }
+        ],
+        "continuation": "opaque/plant/p2"
+      }
+    },
+    {
+      "operation": "BrowseNext",
+      "arguments": {
+        "session": "s1",
+        "continuation_point": "opaque/plant/p2",
+        "release": false
+      },
+      "response": {
+        "status": "Good",
+        "references": [
+          {
+            "target": "ns=1;s=line1",
+            "reference_type": "Organizes",
+            "forward": true,
+            "class": "Object",
+            "display": "一号产线"
+          },
+          {
+            "target": "svr=1;su=urn:vendor:C;ns=2;s=remote-skid",
+            "reference_type": "Organizes",
+            "forward": true,
+            "class": "Object",
+            "display": "远端撬装"
+          },
+          {
+            "target": "svr=9;su=urn:unknown:vendor;ns=1;s=ghost",
+            "reference_type": "HasComponent",
+            "forward": true,
+            "class": "Object",
+            "display": "未登记服务节点"
+          }
+        ],
+        "continuation": null
+      }
+    },
+    {
+      "operation": "Browse",
+      "arguments": {
+        "session": "s1",
+        "node": "ns=1;s=meter"
+      },
+      "response": {
+        "status": "Good",
+        "references": [
+          {
+            "target": "ns=1;s=meter/eng-unit",
+            "reference_type": "HasProperty",
+            "forward": true,
+            "class": "Variable",
+            "display": "工程单位"
+          }
+        ],
+        "continuation": null
+      }
+    },
+    {
+      "operation": "Browse",
+      "arguments": {
+        "session": "s1",
+        "node": "ns=1;g=550e8400-e29b-41d4-a716-446655440000"
+      },
+      "response": {
+        "status": "Good",
+        "references": [],
+        "continuation": null
+      }
+    },
+    {
+      "operation": "Browse",
+      "arguments": {
+        "session": "s1",
+        "node": "ns=1;b=0a1bff"
+      },
+      "response": {
+        "status": "Good",
+        "references": [],
+        "continuation": null
+      }
+    },
+    {
+      "operation": "Browse",
+      "arguments": {
+        "session": "s1",
+        "node": "ns=1;s=line1"
+      },
+      "response": {
+        "status": "Good",
+        "references": [
+          {
+            "target": "ns=1;s=line2",
+            "reference_type": "Organizes",
+            "forward": true,
+            "class": "Object",
+            "display": "二号产线"
+          },
+          {
+            "target": "ns=1;s=tag-B",
+            "reference_type": "HasComponent",
+            "forward": true,
+            "class": "Object",
+            "display": "A厂同名位号对象"
+          }
+        ],
+        "continuation": "opaque/line1/p1"
+      }
+    },
+    {
+      "operation": "BrowseNext",
+      "error": "BadSessionIdInvalid"
+    },
+    {
+      "operation": "Browse",
+      "arguments": {
+        "session": "s2",
+        "node": "ns=2;s=line1"
+      },
+      "response": {
+        "status": "Good",
+        "references": [
+          {
+            "target": "ns=2;s=line2",
+            "reference_type": "Organizes",
+            "forward": true,
+            "class": "Object",
+            "display": "二号产线"
+          },
+          {
+            "target": "ns=2;s=meter",
+            "reference_type": "HasComponent",
+            "forward": true,
+            "class": "Variable",
+            "display": "压力"
+          }
+        ],
+        "continuation": "opaque/line1/p1-s2"
+      }
+    },
+    {
+      "operation": "BrowseNext",
+      "arguments": {
+        "session": "s2",
+        "continuation_point": "opaque/line1/p1-s2",
+        "release": false
+      },
+      "response": {
+        "status": "Good",
+        "references": [
+          {
+            "target": "ns=2;i=4711",
+            "reference_type": "HasComponent",
+            "forward": true,
+            "class": "Variable",
+            "display": "转速"
+          },
+          {
+            "target": "ns=1;s=tag-B",
+            "reference_type": "HasComponent",
+            "forward": true,
+            "class": "Variable",
+            "display": "B厂位号"
+          }
+        ],
+        "continuation": null
+      }
+    },
+    {
+      "operation": "Browse",
+      "arguments": {
+        "session": "s2",
+        "node": "ns=2;s=line2"
+      },
+      "response": {
+        "status": "Good",
+        "references": [
+          {
+            "target": "ns=2;s=line2",
+            "reference_type": "Organizes",
+            "forward": true,
+            "class": "Object",
+            "display": "二号产线"
+          },
+          {
+            "target": "ns=2;s=line1",
+            "reference_type": "HasComponent",
+            "forward": false,
+            "class": "Object",
+            "display": "一号产线"
+          },
+          {
+            "target": "ns=1;s=tag-B",
+            "reference_type": "HasComponent",
+            "forward": true,
+            "class": "Variable",
+            "display": "B厂位号"
+          }
+        ],
+        "continuation": null
+      }
+    },
+    {
+      "operation": "Browse",
+      "arguments": {
+        "session": "s2",
+        "node": "ns=2;s=tag-B"
+      },
+      "response": {
+        "status": "BadNoMatch",
+        "references": [],
+        "continuation": null
+      }
+    },
+    {
+      "operation": "Browse",
+      "arguments": {
+        "session": "s2",
+        "node": "ns=2;i=4711"
+      },
+      "response": {
+        "status": "Good",
+        "references": [],
+        "continuation": null
+      }
+    },
+    {
+      "operation": "Browse",
+      "arguments": {
+        "session": "s2",
+        "node": "ns=1;s=tag-B"
+      },
+      "response": {
+        "status": "Good",
+        "references": [],
+        "continuation": null
+      }
+    },
+    {
+      "operation": "Read",
+      "arguments": {
+        "session": "s2",
+        "nodes": [
+          "ns=2;i=4711",
+          "ns=2;s=meter"
+        ],
+        "attribute": "Value"
+      },
+      "response": {
+        "results": [
+          {
+            "status": "UncertainLastUsableValue",
+            "value": 1420,
+            "source_timestamp": "2030-01-01T00:00:00Z",
+            "server_timestamp": "2030-01-01T00:00:02Z"
+          },
+          {
+            "status": "Good",
+            "value": 3.2,
+            "source_timestamp": "2030-01-01T00:00:00Z",
+            "server_timestamp": "2030-01-01T00:00:01Z"
+          }
+        ]
+      }
+    },
+    {
+      "operation": "Read",
+      "arguments": {
+        "session": "s2",
+        "nodes": [
+          "ns=1;s=tag-B"
+        ],
+        "attribute": "Value"
+      },
+      "response": {
+        "results": [
+          {
+            "status": "BadNotReadable",
+            "value": null
+          }
+        ]
+      }
+    },
+    {
+      "operation": "Close",
+      "arguments": {
+        "session": "s2"
+      },
+      "response": {
+        "status": "Good"
+      }
+    }
+  ]
+}

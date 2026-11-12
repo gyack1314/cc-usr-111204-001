@@ -1,0 +1,639 @@
+{
+  "material_version": 1,
+  "source_sha256": "5afad634ac239ca7a45a888e2ff75a3f48c128334331f0fd443e85c5ace00fb9",
+  "server": {
+    "server_uri": "urn:hydrogen:lab",
+    "server_table": [
+      {
+        "server_index": 1,
+        "server_uri": "urn:vendor:C"
+      }
+    ]
+  },
+  "sessions": [
+    {
+      "id": "s1",
+      "server_uri": "urn:hydrogen:lab",
+      "namespace_array": [
+        "http://opcfoundation.org/UA/",
+        "urn:vendor:A",
+        "urn:vendor:B"
+      ],
+      "namespace_index_map": {
+        "http://opcfoundation.org/UA/": 0,
+        "urn:vendor:A": 1,
+        "urn:vendor:B": 2
+      }
+    },
+    {
+      "id": "s2",
+      "server_uri": "urn:hydrogen:lab",
+      "namespace_array": [
+        "http://opcfoundation.org/UA/",
+        "urn:vendor:B",
+        "urn:vendor:A"
+      ],
+      "namespace_index_map": {
+        "http://opcfoundation.org/UA/": 0,
+        "urn:vendor:B": 1,
+        "urn:vendor:A": 2
+      }
+    }
+  ],
+  "config": {
+    "allowed_reference_types": [
+      "HasComponent",
+      "Organizes"
+    ],
+    "max_nodes": 100,
+    "max_pages": 200,
+    "read_batch": 2,
+    "read_attributes": [
+      "Value"
+    ]
+  },
+  "consistency": {
+    "traversal_complete": false,
+    "point_in_time_snapshot": false,
+    "snapshot_guarantee": "服务器未提供整库版本保证；Read 分批执行，批次之间不是原子快照，资料只保证遍历完整性，不声称同一时刻一致"
+  },
+  "nodes": [
+    {
+      "server_uri": "urn:hydrogen:lab",
+      "namespace_uri": "urn:vendor:A",
+      "identifier_type": "bytes",
+      "identifier": "0a1bff",
+      "stable_id": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;b=0a1bff",
+      "node_class": "Object",
+      "display_name": "校准块",
+      "browse_complete": true,
+      "discovered_via_browse": true,
+      "discovery_session": "s1",
+      "discovery_wire": "ns=1;b=0a1bff"
+    },
+    {
+      "server_uri": "urn:hydrogen:lab",
+      "namespace_uri": "urn:vendor:A",
+      "identifier_type": "guid",
+      "identifier": "550e8400-e29b-41d4-a716-446655440000",
+      "stable_id": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;g=550e8400-e29b-41d4-a716-446655440000",
+      "node_class": "Object",
+      "display_name": "控制器",
+      "browse_complete": true,
+      "discovered_via_browse": true,
+      "discovery_session": "s1",
+      "discovery_wire": "ns=1;g=550e8400-e29b-41d4-a716-446655440000"
+    },
+    {
+      "server_uri": "urn:hydrogen:lab",
+      "namespace_uri": "urn:vendor:A",
+      "identifier_type": "numeric",
+      "identifier": "4711",
+      "stable_id": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;i=4711",
+      "node_class": "Variable",
+      "display_name": "转速",
+      "browse_complete": true,
+      "discovered_via_browse": true,
+      "discovery_session": "s2",
+      "discovery_wire": "ns=2;i=4711"
+    },
+    {
+      "server_uri": "urn:hydrogen:lab",
+      "namespace_uri": "urn:vendor:A",
+      "identifier_type": "string",
+      "identifier": "line1",
+      "stable_id": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "node_class": "Object",
+      "display_name": "一号产线",
+      "browse_complete": true,
+      "discovered_via_browse": true,
+      "discovery_session": "s1",
+      "discovery_wire": "ns=1;s=line1"
+    },
+    {
+      "server_uri": "urn:hydrogen:lab",
+      "namespace_uri": "urn:vendor:A",
+      "identifier_type": "string",
+      "identifier": "line2",
+      "stable_id": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line2",
+      "node_class": "Object",
+      "display_name": "二号产线",
+      "browse_complete": true,
+      "discovered_via_browse": true,
+      "discovery_session": "s1",
+      "discovery_wire": "ns=1;s=line2"
+    },
+    {
+      "server_uri": "urn:hydrogen:lab",
+      "namespace_uri": "urn:vendor:A",
+      "identifier_type": "string",
+      "identifier": "meter",
+      "stable_id": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=meter",
+      "node_class": "Variable",
+      "display_name": "压力",
+      "browse_complete": true,
+      "discovered_via_browse": true,
+      "discovery_session": "s1",
+      "discovery_wire": "ns=1;s=meter"
+    },
+    {
+      "server_uri": "urn:hydrogen:lab",
+      "namespace_uri": "urn:vendor:A",
+      "identifier_type": "string",
+      "identifier": "plant",
+      "stable_id": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "node_class": null,
+      "display_name": null,
+      "browse_complete": true,
+      "discovered_via_browse": false,
+      "discovery_session": "s1",
+      "discovery_wire": "ns=1;s=plant"
+    },
+    {
+      "server_uri": "urn:hydrogen:lab",
+      "namespace_uri": "urn:vendor:A",
+      "identifier_type": "string",
+      "identifier": "tag-B",
+      "stable_id": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=tag-B",
+      "node_class": "Object",
+      "display_name": "A厂同名位号对象",
+      "browse_complete": false,
+      "discovered_via_browse": true,
+      "discovery_session": "s1",
+      "discovery_wire": "ns=1;s=tag-B"
+    },
+    {
+      "server_uri": "urn:hydrogen:lab",
+      "namespace_uri": "urn:vendor:B",
+      "identifier_type": "string",
+      "identifier": "tag-B",
+      "stable_id": "stable:server=urn:hydrogen:lab;ns=urn:vendor:B;s=tag-B",
+      "node_class": "Variable",
+      "display_name": "B厂位号",
+      "browse_complete": true,
+      "discovered_via_browse": true,
+      "discovery_session": "s2",
+      "discovery_wire": "ns=1;s=tag-B"
+    }
+  ],
+  "edges": [
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;i=4711",
+      "reference_type": "HasComponent",
+      "forward": true,
+      "in_scope": true,
+      "first_seen_session": "s2",
+      "source_wire": "ns=2;s=line1",
+      "target_wire": "ns=2;i=4711",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line2",
+      "reference_type": "Organizes",
+      "forward": true,
+      "in_scope": true,
+      "first_seen_session": "s1",
+      "source_wire": "ns=1;s=line1",
+      "target_wire": "ns=1;s=line2",
+      "occurrences": 2
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=meter",
+      "reference_type": "HasComponent",
+      "forward": true,
+      "in_scope": true,
+      "first_seen_session": "s2",
+      "source_wire": "ns=2;s=line1",
+      "target_wire": "ns=2;s=meter",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=tag-B",
+      "reference_type": "HasComponent",
+      "forward": true,
+      "in_scope": true,
+      "first_seen_session": "s1",
+      "source_wire": "ns=1;s=line1",
+      "target_wire": "ns=1;s=tag-B",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:B;s=tag-B",
+      "reference_type": "HasComponent",
+      "forward": true,
+      "in_scope": true,
+      "first_seen_session": "s2",
+      "source_wire": "ns=2;s=line1",
+      "target_wire": "ns=1;s=tag-B",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line2",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "reference_type": "HasComponent",
+      "forward": false,
+      "in_scope": false,
+      "first_seen_session": "s2",
+      "source_wire": "ns=2;s=line2",
+      "target_wire": "ns=2;s=line1",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line2",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line2",
+      "reference_type": "Organizes",
+      "forward": true,
+      "in_scope": true,
+      "first_seen_session": "s2",
+      "source_wire": "ns=2;s=line2",
+      "target_wire": "ns=2;s=line2",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line2",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:B;s=tag-B",
+      "reference_type": "HasComponent",
+      "forward": true,
+      "in_scope": true,
+      "first_seen_session": "s2",
+      "source_wire": "ns=2;s=line2",
+      "target_wire": "ns=1;s=tag-B",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=meter",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=meter/eng-unit",
+      "reference_type": "HasProperty",
+      "forward": true,
+      "in_scope": false,
+      "first_seen_session": "s1",
+      "source_wire": "ns=1;s=meter",
+      "target_wire": "ns=1;s=meter/eng-unit",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;b=0a1bff",
+      "reference_type": "HasComponent",
+      "forward": true,
+      "in_scope": true,
+      "first_seen_session": "s1",
+      "source_wire": "ns=1;s=plant",
+      "target_wire": "ns=1;b=0a1bff",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;g=550e8400-e29b-41d4-a716-446655440000",
+      "reference_type": "HasComponent",
+      "forward": true,
+      "in_scope": true,
+      "first_seen_session": "s1",
+      "source_wire": "ns=1;s=plant",
+      "target_wire": "ns=1;g=550e8400-e29b-41d4-a716-446655440000",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "reference_type": "Organizes",
+      "forward": true,
+      "in_scope": true,
+      "first_seen_session": "s1",
+      "source_wire": "ns=1;s=plant",
+      "target_wire": "ns=1;s=line1",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "target": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=meter",
+      "reference_type": "HasComponent",
+      "forward": true,
+      "in_scope": true,
+      "first_seen_session": "s1",
+      "source_wire": "ns=1;s=plant",
+      "target_wire": "ns=1;s=meter",
+      "occurrences": 1
+    }
+  ],
+  "external_references": [
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "reference_type": "Organizes",
+      "forward": true,
+      "target_server_index": 1,
+      "target_server_uri": "urn:vendor:C",
+      "target_namespace_uri": "urn:vendor:C",
+      "target_identifier_type": "string",
+      "target_identifier": "remote-skid",
+      "raw_expanded_node_id": "svr=1;su=urn:vendor:C;ns=2;s=remote-skid",
+      "first_seen_session": "s1",
+      "occurrences": 1
+    },
+    {
+      "source": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "reference_type": "HasComponent",
+      "forward": true,
+      "target_server_index": 9,
+      "target_server_uri": null,
+      "target_namespace_uri": "urn:unknown:vendor",
+      "target_identifier_type": "string",
+      "target_identifier": "ghost",
+      "raw_expanded_node_id": "svr=9;su=urn:unknown:vendor;ns=1;s=ghost",
+      "first_seen_session": "s1",
+      "occurrences": 1
+    }
+  ],
+  "browse_pages": [
+    {
+      "page_id": "P0001",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "session": "s1",
+      "operation": "Browse",
+      "node_wire": "ns=1;s=plant",
+      "request_continuation_point": null,
+      "status_code": "Good",
+      "reference_count": 2,
+      "response_continuation_point": "opaque/plant/p1"
+    },
+    {
+      "page_id": "P0002",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "session": "s1",
+      "operation": "BrowseNext",
+      "node_wire": "ns=1;s=plant",
+      "request_continuation_point": "opaque/plant/p1",
+      "status_code": "Good",
+      "reference_count": 1,
+      "response_continuation_point": "opaque/plant/p2"
+    },
+    {
+      "page_id": "P0003",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "session": "s1",
+      "operation": "BrowseNext",
+      "node_wire": "ns=1;s=plant",
+      "request_continuation_point": "opaque/plant/p2",
+      "status_code": "Good",
+      "reference_count": 3,
+      "response_continuation_point": null
+    },
+    {
+      "page_id": "P0004",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=meter",
+      "session": "s1",
+      "operation": "Browse",
+      "node_wire": "ns=1;s=meter",
+      "request_continuation_point": null,
+      "status_code": "Good",
+      "reference_count": 1,
+      "response_continuation_point": null
+    },
+    {
+      "page_id": "P0005",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;g=550e8400-e29b-41d4-a716-446655440000",
+      "session": "s1",
+      "operation": "Browse",
+      "node_wire": "ns=1;g=550e8400-e29b-41d4-a716-446655440000",
+      "request_continuation_point": null,
+      "status_code": "Good",
+      "reference_count": 0,
+      "response_continuation_point": null
+    },
+    {
+      "page_id": "P0006",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;b=0a1bff",
+      "session": "s1",
+      "operation": "Browse",
+      "node_wire": "ns=1;b=0a1bff",
+      "request_continuation_point": null,
+      "status_code": "Good",
+      "reference_count": 0,
+      "response_continuation_point": null
+    },
+    {
+      "page_id": "P0007",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "session": "s1",
+      "operation": "Browse",
+      "node_wire": "ns=1;s=line1",
+      "request_continuation_point": null,
+      "status_code": "Good",
+      "reference_count": 2,
+      "response_continuation_point": "opaque/line1/p1"
+    },
+    {
+      "page_id": "P0008",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "session": "s2",
+      "operation": "Browse",
+      "node_wire": "ns=2;s=line1",
+      "request_continuation_point": null,
+      "status_code": "Good",
+      "reference_count": 2,
+      "response_continuation_point": "opaque/line1/p1-s2"
+    },
+    {
+      "page_id": "P0009",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "session": "s2",
+      "operation": "BrowseNext",
+      "node_wire": "ns=2;s=line1",
+      "request_continuation_point": "opaque/line1/p1-s2",
+      "status_code": "Good",
+      "reference_count": 2,
+      "response_continuation_point": null
+    },
+    {
+      "page_id": "P0010",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line2",
+      "session": "s2",
+      "operation": "Browse",
+      "node_wire": "ns=2;s=line2",
+      "request_continuation_point": null,
+      "status_code": "Good",
+      "reference_count": 3,
+      "response_continuation_point": null
+    },
+    {
+      "page_id": "P0011",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=tag-B",
+      "session": "s2",
+      "operation": "Browse",
+      "node_wire": "ns=2;s=tag-B",
+      "request_continuation_point": null,
+      "status_code": "BadNoMatch",
+      "reference_count": 0,
+      "response_continuation_point": null
+    },
+    {
+      "page_id": "P0012",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;i=4711",
+      "session": "s2",
+      "operation": "Browse",
+      "node_wire": "ns=2;i=4711",
+      "request_continuation_point": null,
+      "status_code": "Good",
+      "reference_count": 0,
+      "response_continuation_point": null
+    },
+    {
+      "page_id": "P0013",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:B;s=tag-B",
+      "session": "s2",
+      "operation": "Browse",
+      "node_wire": "ns=1;s=tag-B",
+      "request_continuation_point": null,
+      "status_code": "Good",
+      "reference_count": 0,
+      "response_continuation_point": null
+    }
+  ],
+  "continuation_points": [
+    {
+      "continuation_point": "opaque/plant/p1",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "session": "s1",
+      "state": "consumed"
+    },
+    {
+      "continuation_point": "opaque/plant/p2",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=plant",
+      "session": "s1",
+      "state": "consumed"
+    },
+    {
+      "continuation_point": "opaque/line1/p1",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "session": "s1",
+      "state": "abandoned",
+      "error": "BadSessionIdInvalid"
+    },
+    {
+      "continuation_point": "opaque/line1/p1-s2",
+      "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+      "session": "s2",
+      "state": "consumed"
+    }
+  ],
+  "read_batches": [
+    {
+      "batch_id": "RB0001",
+      "session": "s2",
+      "attribute": "Value",
+      "requests": [
+        {
+          "request_index": 0,
+          "node_wire": "ns=2;i=4711",
+          "status_code": "UncertainLastUsableValue",
+          "status_category": "Uncertain",
+          "value_present": true,
+          "raw_value": 1420,
+          "source_timestamp": "2030-01-01T00:00:00Z",
+          "server_timestamp": "2030-01-01T00:00:02Z"
+        },
+        {
+          "request_index": 1,
+          "node_wire": "ns=2;s=meter",
+          "status_code": "Good",
+          "status_category": "Good",
+          "value_present": true,
+          "raw_value": 3.2,
+          "source_timestamp": "2030-01-01T00:00:00Z",
+          "server_timestamp": "2030-01-01T00:00:01Z"
+        }
+      ]
+    },
+    {
+      "batch_id": "RB0002",
+      "session": "s2",
+      "attribute": "Value",
+      "requests": [
+        {
+          "request_index": 0,
+          "node_wire": "ns=1;s=tag-B",
+          "status_code": "BadNotReadable",
+          "status_category": "Bad",
+          "value_present": true,
+          "raw_value": null
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "G0001",
+      "kind": "session_failover",
+      "detail": {
+        "failed_session": "s1",
+        "resume_session": "s2",
+        "error": "BadSessionIdInvalid",
+        "abandoned_continuation_point": "opaque/line1/p1",
+        "rule": "旧续点与旧 ns 索引均不复用，未完成节点按稳定身份重做"
+      }
+    },
+    {
+      "gap_id": "G0002",
+      "kind": "interrupted_browse",
+      "detail": {
+        "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=tag-B",
+        "failed_session": "s1",
+        "resume_session": "s2",
+        "reason": "BadSessionIdInvalid",
+        "rule": "按稳定身份在新会话重做，不携带旧 ns 索引与续点"
+      }
+    },
+    {
+      "gap_id": "G0003",
+      "kind": "interrupted_browse",
+      "detail": {
+        "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line2",
+        "failed_session": "s1",
+        "resume_session": "s2",
+        "reason": "BadSessionIdInvalid",
+        "rule": "按稳定身份在新会话重做，不携带旧 ns 索引与续点"
+      }
+    },
+    {
+      "gap_id": "G0004",
+      "kind": "interrupted_browse",
+      "detail": {
+        "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=line1",
+        "failed_session": "s1",
+        "resume_session": "s2",
+        "reason": "BadSessionIdInvalid",
+        "rule": "按稳定身份在新会话重做，不携带旧 ns 索引与续点"
+      }
+    },
+    {
+      "gap_id": "G0005",
+      "kind": "browse_status_not_good",
+      "detail": {
+        "source_node": "stable:server=urn:hydrogen:lab;ns=urn:vendor:A;s=tag-B",
+        "session": "s2",
+        "operation": "Browse",
+        "node_wire": "ns=2;s=tag-B",
+        "status_code": "BadNoMatch",
+        "continuation_point": null
+      }
+    }
+  ],
+  "summary": {
+    "nodes_total": 9,
+    "nodes_browse_complete": 8,
+    "edges_total": 13,
+    "external_references_total": 2,
+    "browse_pages_total": 13,
+    "read_batches_total": 2,
+    "read_results_good": 1,
+    "read_results_uncertain": 1,
+    "read_results_bad": 1,
+    "gaps_total": 5,
+    "session_failovers": 1
+  }
+}
